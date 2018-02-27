@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+</head>
+<body>
+<div>
+	<span id="detail">xxx</span></br>
+	<span id="detail1">xxx</span></br>
+    <button id="scanner" onclick="scan()" type="button" value="Scanner">Scanner</button>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+</body>
+
+<script>
+	$(document).ready(function(){
+		var date = new Date();
+		$("#detail").html(date);
+	});
+</script>
+
+<script>
+
+  function scan(){
+    console.log("click");
+    Android.scanBarcode();
+  }
+
+  function setBarcode(value)
+  {
+	$("#detail1").html(value);
+  }
+
+
+</script>
+
+</html>
