@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Application/app.iml" filepath="$PROJECT_DIR$/Application/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaScriptInterface.iml" filepath="$PROJECT_DIR$/JavaScriptInterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-Javascript-Interface.iml" filepath="$PROJECT_DIR$/Android-Javascript-Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Application/Application.iml" filepath="$PROJECT_DIR$/Application/Application.iml" />
     </modules>
   </component>
 </project>

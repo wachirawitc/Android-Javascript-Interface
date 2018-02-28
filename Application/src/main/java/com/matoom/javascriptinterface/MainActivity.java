@@ -1,14 +1,14 @@
 package com.matoom.javascriptinterface;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final String INTERFACE_NAME = "Android";
+    private final String URL = "http://192.168.96.67/test/";
 
     private JavaScriptInterface javaScriptInterface;
     private WebView webview;
@@ -18,39 +18,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        webview = (WebView) findViewById(R.id.webview);
-        webview.loadUrl("http://192.168.1.43/test/");
-
+        webview = findViewById(R.id.webview);
+        webview.loadUrl(URL);
         webview.getSettings().setJavaScriptEnabled(true);
+        webview.setWebViewClient(new WebViewClient());
 
         javaScriptInterface = new JavaScriptInterface(this);
-        webview.addJavascriptInterface(javaScriptInterface, "Android");
-        webview.setWebViewClient(new WebViewClient());
+        webview.addJavascriptInterface(javaScriptInterface, INTERFACE_NAME);
     }
 
-    public class JavaScriptInterface {
-        Context context;
-
-        JavaScriptInterface(Context context) {
-            this.context = context;
-        }
-        
-
-        @JavascriptInterface
-        public void scanBarcode() {
-            Log.d("MainActivity", "scanBarcode");
-
-            webview.post(new Runnable() {
-                @Override
-                public void run() {
-                    String loadingUrl = "javascript:setBarcode('hello from android (java)')";
-                    webview.loadUrl(loadingUrl);
-
-                    Log.d("MainActivity", webview.getUrl());
-                }
-            });
-
-
-        }
-    }
 }

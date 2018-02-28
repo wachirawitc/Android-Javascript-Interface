@@ -8,8 +8,8 @@
 </head>
 <body>
 <div>
-	<span id="detail">xxx</span></br>
-	<span id="detail1">xxx</span></br>
+    <span id="detail">xxx</span></br>
+    <span id="detail1">xxx</span></br>
     <button id="scanner" onclick="scan()" type="button" value="Scanner">Scanner</button>
 </div>
 <script src="jquery-3.2.1.min.js"></script>
@@ -25,15 +25,9 @@
 <script>
 
   function scan(){
-    console.log("click");
-    Android.scanBarcode();
+    var value = Android.scanBarcode();
+    $("#detail1").html(value);
   }
-
-  function setBarcode(value)
-  {
-	$("#detail1").html(value);
-  }
-
 
 </script>
 
